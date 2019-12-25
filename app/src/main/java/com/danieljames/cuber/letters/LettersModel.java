@@ -21,8 +21,8 @@ public class LettersModel implements Serializable {
     int rowLimit = 26;
     int colLimit = 26;
     public String[][] letters = new String[rowLimit][colLimit];
-    public String[] keyList;
-    public String[] valueList;
+    public String[] keyList = {};
+    public String[] valueList = {};
     String rootPath;
     String fileName = "cuber_letters.txt";
     public static LettersModel lettersModel;
