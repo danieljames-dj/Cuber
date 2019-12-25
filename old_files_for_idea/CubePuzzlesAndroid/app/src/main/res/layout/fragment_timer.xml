@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/time"
+        android:text="0.000"
+        android:layout_centerHorizontal="true"
+        android:textSize="80dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/timer_puzzle_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/time"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:text="3x3x3 CUBE"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/timer_scramble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timer_puzzle_name"
+        android:layout_centerHorizontal="true"
+        android:paddingHorizontal="10dp"
+        android:text="F R U R' U' F' F R U R' U' F' F R U R' U' F' F R U R' U' F' F R U R' U' F' "
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_menu_edit" />
+
+</RelativeLayout>

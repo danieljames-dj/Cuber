@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="memo_menu">
+        <item>List letter pairs</item>
+        <item>Import letter pairs (.json)</item>
+        <item>Download letter pairs (.json)</item>
+        <item>Quiz</item>
+    </string-array>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Cube Puzzle</string>
+    <string name="timer_tab_title">Timer</string>
+    <string name="memo_tab_title">Memo</string>
+
+</resources>

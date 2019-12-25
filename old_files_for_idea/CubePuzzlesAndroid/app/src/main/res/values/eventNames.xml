@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="eventShortNames">
+        <item>333bf</item>
+        <item>333mbf</item>
+    </string-array>
+
+    <string-array name="eventMediumNames">
+        <item>3BLD</item>
+        <item>MBLD</item>
+    </string-array>
+
+    <string-array name="eventLongNames">
+        <item>3x3x3 Blindfolded</item>
+        <item>3x3x3 Multi-blind</item>
+    </string-array>
+
+</resources>
