@@ -21,8 +21,10 @@ public class LettersModel implements Serializable {
     int rowLimit = 26;
     int colLimit = 26;
     public String[][] letters = new String[rowLimit][colLimit];
+    public int[][] points = new int[rowLimit][colLimit];
     public String[] keyList = {};
     public String[] valueList = {};
+    public Integer[] pointList = {};
     String rootPath;
     String fileName = "cuber_letters.txt";
     public static LettersModel lettersModel;
@@ -33,8 +35,23 @@ public class LettersModel implements Serializable {
         readFile();
     }
 
+    public void updatePoints(String key) {
+        int rowIndex = (int) key.charAt(0) - (int) (new Character('A'));
+        int colIndex = (int) key.charAt(1) - (int) (new Character('A'));
+        if (rowIndex >= 0 && rowIndex < rowLimit && colIndex >= 0 && colIndex < colLimit) {
+            points[rowIndex][colIndex] += 1;
+            saveFile();
+        }
+    }
+
+    public int getPoints(String key) {
+        int rowIndex = (int) key.charAt(0) - (int) (new Character('A'));
+        int colIndex = (int) key.charAt(1) - (int) (new Character('A'));
+        return points[rowIndex][colIndex];
+    }
+
     public void updatePair(String key, String value) {
-        readLine(key + " " + value);
+        readLine(key + " " + value + " 0");
         saveFile();
     }
 
@@ -42,7 +59,8 @@ public class LettersModel implements Serializable {
         int rowIndex = (int) line.charAt(0) - (int) (new Character('A'));
         int colIndex = (int) line.charAt(1) - (int) (new Character('A'));
         if (rowIndex >= 0 && rowIndex < rowLimit && colIndex >= 0 && colIndex < colLimit) {
-            letters[rowIndex][colIndex] = line.substring(3).trim();
+            letters[rowIndex][colIndex] = line.substring(3, line.length() - 2).trim();
+            points[rowIndex][colIndex] = line.charAt(line.length() - 1) - '0';
         }
     }
 
@@ -84,7 +102,7 @@ public class LettersModel implements Serializable {
                         String line = String.valueOf((char) (new Character('A') + i)) +
                                 String.valueOf((char) (new Character('A') + j)) +
                                 " " +
-                                letters[i][j] + "\n";
+                                letters[i][j] + " " + String.valueOf(points[i][j]) + "\n";
                         out.write(line.getBytes());
                     }
                 }
@@ -98,17 +116,20 @@ public class LettersModel implements Serializable {
     private void setKeyValuePairs() {
         List<String> keys = new ArrayList<>();
         List<String> values = new ArrayList<>();
+        List<Integer> pointListTemp = new ArrayList<>();
         for (int i = 0; i < rowLimit; i++) {
             for (int j = 0; j < colLimit; j++) {
                 if (letters[i][j] != null) {
                     keys.add(Character.toString((char) (new Character('A') + i)) +
                             ((char) (new Character('A') + j)));
                     values.add(letters[i][j]);
+                    pointListTemp.add(points[i][j]);
                 }
             }
         }
         this.keyList = keys.toArray(new String[0]);
         this.valueList = values.toArray(new String[0]);
+        this.pointList = pointListTemp.toArray(new Integer[0]);
     }
 
     public void importFile(Uri uri) {

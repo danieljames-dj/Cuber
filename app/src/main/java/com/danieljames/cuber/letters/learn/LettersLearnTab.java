@@ -43,10 +43,21 @@ public class LettersLearnTab extends Fragment {
         String[] keys = new String[count];
         String[] values = new String[count];
         Random rand = new Random();
-        for (int i = 0; i < count; i++) {
+        int i = 0;
+        while (i < count) {
             int randRowInt = rand.nextInt(lettersModel.keyList.length);
             keys[i] = lettersModel.keyList[randRowInt];
             values[i] = lettersModel.valueList[randRowInt];
+            boolean found = false;
+            for (int j = 0; j < i; j++) {
+                if (keys[j] == keys[i]) {
+                    found = true;
+                    break;
+                }
+            }
+            if (lettersModel.pointList[randRowInt] != 5 && !found) {
+                i++;
+            }
         }
         Intent intent;
         intent = new Intent(getActivity(), LettersLearnActivity.class);

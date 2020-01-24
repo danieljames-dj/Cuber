@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.danieljames.cuber.R;
 import com.danieljames.cuber.letters.LettersModel;
@@ -51,6 +52,12 @@ public class LettersLearnActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     totalRating += currentRating;
+                    if (currentRating == 5) {
+                        lettersModel.updatePoints(keys[currentIndex]);
+                        if (lettersModel.getPoints(keys[currentIndex]) == 5) {
+                            Toast.makeText(context, "Mastered " + keys[currentIndex], Toast.LENGTH_SHORT).show();
+                        }
+                    }
                     currentIndex += 1;
                     if (currentIndex < keys.length) {
                         expansion.setText("");
@@ -66,12 +73,6 @@ public class LettersLearnActivity extends AppCompatActivity {
                         alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 context.finish();
-                            }
-                        });
-
-                        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                // Canceled.
                             }
                         });
 
