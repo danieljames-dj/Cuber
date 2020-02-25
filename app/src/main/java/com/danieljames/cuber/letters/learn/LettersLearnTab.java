@@ -28,10 +28,17 @@ public class LettersLearnTab extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.letters_learn_tab, container, false);
         Button button = (Button) view.findViewById(R.id.letters_start_learn);
+        Button reset = (Button) view.findViewById(R.id.letters_reset);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startLearning();
+            }
+        });
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetLearning();
             }
         });
         return view;
@@ -64,5 +71,9 @@ public class LettersLearnTab extends Fragment {
         intent.putExtra("keys", keys);
         intent.putExtra("values", values);
         startActivity(intent);
+    }
+
+    private void resetLearning() {
+        lettersModel.reset();
     }
 }

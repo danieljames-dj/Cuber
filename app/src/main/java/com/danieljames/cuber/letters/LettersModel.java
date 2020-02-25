@@ -149,4 +149,13 @@ public class LettersModel implements Serializable {
             Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void reset() {
+        for (int i = 0; i < rowLimit; i++) {
+            for (int j = 0; j < colLimit; j++) {
+                this.points[i][j] = 0;
+                saveFile();
+            }
+        }
+    }
 }
