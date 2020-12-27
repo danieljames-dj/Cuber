@@ -31,8 +31,8 @@ public class LettersLearnActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.letters_learn_activity);
-        keys = getIntent().getStringArrayExtra("keys");
+        setContentView(R.layout.letters_learn_activity);keys = getIntent().getStringArrayExtra("keys");
+
         values = getIntent().getStringArrayExtra("values");
         lettersModel = LettersModel.lettersModel;
         letterPair = findViewById(R.id.learn_activity_letterpair);

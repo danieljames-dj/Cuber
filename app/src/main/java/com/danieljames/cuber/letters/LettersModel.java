@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,6 +30,7 @@ public class LettersModel implements Serializable {
     String rootPath;
     String fileName = "cuber_letters.txt";
     public static LettersModel lettersModel;
+    JSONArray
 
     public LettersModel(Context context) {
         this.context = context;
